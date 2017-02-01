@@ -11,4 +11,6 @@
 |
 */
 
+Route::get('/', 'ProductoController@index');
 Route::get('/{region?}', 'ProductoController@index');
+Route::get('/buscar', 'ProductoController@buscar');

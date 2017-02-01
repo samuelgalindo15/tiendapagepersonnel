@@ -32,11 +32,6 @@ class SucursalesProductosTableSeeder extends Seeder
           'sucursal_id'=>4,
           'producto_id'=>1,
         ],
-        4=>[
-          'cantidad'=>45,
-          'sucursal_id'=>5,
-          'producto_id'=>1,
-        ],
 
         5=>[
           'cantidad'=>10,
@@ -56,11 +51,6 @@ class SucursalesProductosTableSeeder extends Seeder
         8=>[
           'cantidad'=>10,
           'sucursal_id'=>4,
-          'producto_id'=>2,
-        ],
-        9=>[
-          'cantidad'=>13,
-          'sucursal_id'=>5,
           'producto_id'=>2,
         ],
 
@@ -84,11 +74,6 @@ class SucursalesProductosTableSeeder extends Seeder
           'sucursal_id'=>4,
           'producto_id'=>3,
         ],
-        14=>[
-          'cantidad'=>4,
-          'sucursal_id'=>5,
-          'producto_id'=>3,
-        ],
 
         15=>[
           'cantidad'=>5,
@@ -108,11 +93,6 @@ class SucursalesProductosTableSeeder extends Seeder
         18=>[
           'cantidad'=>4,
           'sucursal_id'=>4,
-          'producto_id'=>4,
-        ],
-        19=>[
-          'cantidad'=>5,
-          'sucursal_id'=>5,
           'producto_id'=>4,
         ],
 
@@ -136,13 +116,13 @@ class SucursalesProductosTableSeeder extends Seeder
           'sucursal_id'=>4,
           'producto_id'=>5,
         ],
-        24=>[
-          'cantidad'=>3,
-          'sucursal_id'=>5,
-          'producto_id'=>5,
-        ],
-
       ];
-
+      foreach ($productos as $key => $val) {
+        DB::table('sucursales_productos')->insert([
+          'cantidad' => $val['cantidad'],
+          'sucursal_id'=>$val['sucursal_id'],
+          'producto_id'=>$val['producto_id']
+        ]);
+      }//foreach
     }
 }

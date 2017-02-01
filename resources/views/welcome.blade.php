@@ -11,7 +11,7 @@
 <!-- start menu -->
 {{ Html::style('css/megamenu.css')}}
 {{ Html::script('js/megamenu.js')}}
-<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+{{ Html::script('js/all.js')}}
 <!--start slider -->
     {{ Html::style('css/fwslider.css')}}
     {{ Html::script('js/jquery-ui.min.js')}}
@@ -26,11 +26,11 @@
   <div class="wrap">
      <div class="header-top-left">
           <div class="box">
-            <select tabindex="4" class="dropdown">
-            <option value="" class="label" value="">Language :</option>
-            <option value="1">English</option>
-            <option value="2">French</option>
-            <option value="3">German</option>
+            <select tabindex="4" class="dropdown" id="sucursal">
+            <option value="" class="label" value="">{{(Request::segment(1)!='')?$estados->where('abreviatura', Request::segment(1))->first()['nombre']:'Sucursal:'}}</option>
+            @foreach ($estados as $key => $val)
+              <option value="{{$val['abreviatura']}}">{{$val['nombre']}}</option>
+            @endforeach
             </select>
          </div>
            <div class="clear"></div>

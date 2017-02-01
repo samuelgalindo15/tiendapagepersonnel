@@ -38,5 +38,13 @@ class SucursalesTableSeeder extends Seeder
           'matriz'=>false
         ],
       ];
+      foreach ($sucursales as $key => $val) {
+        DB::table('sucursales')->insert([
+          'nombre' => $val['nombre'],
+          'estado_id'=>$val['estado_id'],
+          'matriz'=>$val['matriz']
+        ]);
+      }//foreach
+
     }
 }
