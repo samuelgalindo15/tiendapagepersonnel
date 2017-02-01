@@ -15,5 +15,32 @@ require('laravel-elixir-vue-2');
 
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js');
+       .scripts([
+          'bootstrap.js',
+          'jquery-ui.min.js',
+          'jquery1.min.js',
+          'jquery.nivo.slider.js',
+          'jquery.magnific-popup.js',
+          'jquery.jscrollpane.min.js',
+          'jquery.flexisel.js',
+          'jquery.etalage.min.js',
+          'jquery.easydropdown.js',
+          'login.js',
+          'megamenu.js',
+          'slides.min.jquery.js',
+          'zoome-e.js',
+          'fwslider',
+          'css3-mediaqueries.js'
+       ])
+       .styles([
+         'default.css',
+         'etalage.css',
+         'form.css',
+         'fwslider.css',
+         'magnific.popup.css',
+         'megamenu.css',
+         'nivo-slider.css',
+         'style.css',
+         'zoome-min.css'
+       ]);;
 });

@@ -11,10 +11,11 @@ class EstadosTableSeeder extends Seeder
      */
     public function run()
     {
-        $estados=['Ciudad de México', 'Jalisco', 'Oaxaca'];
+        $estados=[0=>['estado'=>'Ciudad de México', 'abreviatura'=>'mx'], 1=>['estado'=>'Jalisco', 'abreviatura'=>'jal'], 2=>['estado'=>'Oaxaca', 'abreviatura'=>'oax']];
         foreach ($estados as $key => $val) {
           DB::table('estados')->insert([
-            'nombre' => $val,
+            'nombre' => $val['estado'],
+            'abreviatura'=>$val['abreviatura']
           ]);
         }//foreach
     }

@@ -1,91 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Page Personnel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{{ Html::style('css/style.css')}}
+{{ Html::style('css/form.css')}}
+<link href='http://fonts.googleapis.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+{{ Html::script('js/jquery1.min.js')}}
+<!-- start menu -->
+{{ Html::style('css/megamenu.css')}}
+{{ Html::script('js/megamenu.js')}}
+<script>$(document).ready(function(){$(".megamenu").megamenu();});</script>
+<!--start slider -->
+    {{ Html::style('css/fwslider.css')}}
+    {{ Html::script('js/jquery-ui.min.js')}}
+    {{ Html::script('js/css3-mediaqueries.js')}}
+    {{ Html::script('js/fwslider.js')}}
+<!--end slider -->
+<script src=""></script>
+{{ Html::script('js/jquery.easydropdown.js')}}
+</head>
+<body>
+  <div class="header-top">
+  <div class="wrap">
+     <div class="header-top-left">
+          <div class="box">
+            <select tabindex="4" class="dropdown">
+            <option value="" class="label" value="">Language :</option>
+            <option value="1">English</option>
+            <option value="2">French</option>
+            <option value="3">German</option>
+            </select>
+         </div>
+           <div class="clear"></div>
+      </div>
+   <div class="clear"></div>
+ </div>
+</div>
 
-        <title>Laravel</title>
+	<div class="header-bottom">
+	    <div class="wrap">
+			<div class="header-bottom-left">
+				<div class="logo">
+					<a href="index.html"><img src="images/logo.png" alt=""/></a>
+				</div>
+				<div class="menu">
+        <ul class="megamenu skyblue">
+			<li class="active grid"><a href="{{URL::to('/')}}">Inicio</a></li>
+			</ul>
+			</div>
+		</div>
+	   <div class="header-bottom-right">
+         <div class="search">
+				<input type="text" name="s" class="textbox" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+				<input type="submit" value="Subscribe" id="submit" name="submit">
+				<div id="response"> </div>
+		 </div>
+	  <div class="tag-list">
+	    <ul class="icon1 sub-icon1 profile_img">
+			<li><a class="active-icon c1" href="#"> </a>
+				<ul class="sub-icon1 list">
+					<li><h3>sed diam nonummy</h3><a href=""></a></li>
+					<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="icon1 sub-icon1 profile_img">
+			<li><a class="active-icon c2" href="#"> </a>
+				<ul class="sub-icon1 list">
+					<li><h3>No Products</h3><a href=""></a></li>
+					<li><p>Lorem ipsum dolor sit amet, consectetuer  <a href="">adipiscing elit, sed diam</a></p></li>
+				</ul>
+			</li>
+		</ul>
+	    <ul class="last"><li><a href="#">Cart(0)</a></li></ul>
+	  </div>
+    </div>
+     <div class="clear"></div>
+     </div>
+	</div>
+  <!-- start slider -->
+    <div id="fwslider">
+        <div class="slider_container">
+            <div class="slide">
+                <!-- Slide image -->
+                    <img src="images/banner.jpg" alt=""/>
+                <!-- /Slide image -->
+                <!-- Texts container -->
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <!-- Text title -->
+                        <h4 class="title">Alienware</h4>
+                        <!-- /Text title -->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+                        <!-- Text description -->
+                        <p class="description">Las Mejores Laptops</p>
+                        <!-- /Text description -->
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                 <!-- /Texts container -->
+            </div>
+            <!-- /Duplicate to create more slides -->
+            <div class="slide">
+                <img src="images/banner1.jpg" alt=""/>
+                <div class="slide_content">
+                    <div class="slide_content_wrap">
+                        <h4 class="title">Monitores</h4>
+                        <p class="description">Las mejores definiciones</p>
+                    </div>
                 </div>
             </div>
+            <!--/slide -->
         </div>
-    </body>
+        <div class="timers"></div>
+        <div class="slidePrev"><span></span></div>
+        <div class="slideNext"><span></span></div>
+    </div>
+    <!--/slider -->
+<div class="main">
+	<div class="wrap">
+		<div class="section group">
+		  <div class="cont span_2_of_3">
+		  	<h2 class="head">Productos</h2>
+			<div class="top-box">
+			 <div class="col_1_of_3 span_1_of_3">
+			   <a href="single.html">
+				<div class="inner_content clearfix">
+					<div class="product_image">
+						<img src="images/pic.jpg" alt=""/>
+					</div>
+                    <div class="sale-box"><span class="on_sale title_shop">New</span></div>
+                    <div class="price">
+					   <div class="cart-left">
+							<p class="title">Lorem Ipsum simply</p>
+							<div class="price1">
+							  <span class="actual">$12.00</span>
+							</div>
+						</div>
+						<div class="cart-right"> </div>
+						<div class="clear"></div>
+					 </div>
+                   </div>
+                 </a>
+				</div>
+			   <div class="col_1_of_3 span_1_of_3">
+			   	 <a href="single.html">
+					<div class="inner_content clearfix">
+					<div class="product_image">
+						<img src="images/pic1.jpg" alt=""/>
+					</div>
+                    <div class="price">
+					   <div class="cart-left">
+							<p class="title">Lorem Ipsum simply</p>
+							<div class="price1">
+							  <span class="actual">$12.00</span>
+							</div>
+						</div>
+						<div class="cart-right"> </div>
+						<div class="clear"></div>
+					 </div>
+                   </div>
+                   </a>
+				</div>
+				<div class="col_1_of_3 span_1_of_3">
+				 <a href="single.html">
+				  <div class="inner_content clearfix">
+					<div class="product_image">
+						<img src="images/pic2.jpg" alt=""/>
+					</div>
+                    <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>
+                    <div class="price">
+					   <div class="cart-left">
+							<p class="title">Lorem Ipsum simply</p>
+							<div class="price1">
+							  <span class="reducedfrom">$66.00</span>
+							  <span class="actual">$12.00</span>
+							</div>
+						</div>
+						<div class="cart-right"> </div>
+						<div class="clear"></div>
+					 </div>
+                   </div>
+                   </a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		  </div>
+	   <div class="clear"></div>
+	</div>
+	</div>
+	</div>
+   <div class="footer">
+		<div class="footer-bottom">
+			<div class="wrap">
+	             <div class="copy">
+			        <p>© 2014 Template by <a href="http://w3layouts.com" target="_blank">w3layouts</a></p>
+		         </div>
+				<div class="f-list2">
+			    </div>
+			    <div class="clear"></div>
+		      </div>
+	     </div>
+	</div>
+</body>
 </html>
