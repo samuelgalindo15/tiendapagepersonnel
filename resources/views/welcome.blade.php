@@ -27,7 +27,7 @@
      <div class="header-top-left">
           <div class="box">
             <select tabindex="4" class="dropdown" id="sucursal">
-            <option value="" class="label" value="">{{(Request::segment(1)!='')?$estados->where('abreviatura', Request::segment(1))->first()['nombre']:'Sucursal:'}}</option>
+            <option value="" class="label" value="">{{(Request::segment(1)!='')?$estados->where('abreviatura', Request::segment(1))->first['nombre']:'Sucursal:'}}</option>
             @foreach ($estados as $key => $val)
               <option value="{{$val['abreviatura']}}">{{$val['nombre']}}</option>
             @endforeach
@@ -122,70 +122,34 @@
 	<div class="wrap">
 		<div class="section group">
 		  <div class="cont span_2_of_3">
-		  	<h2 class="head">Productos</h2>
-			<div class="top-box">
-			 <div class="col_1_of_3 span_1_of_3">
-			   <a href="single.html">
-				<div class="inner_content clearfix">
-					<div class="product_image">
-						<img src="images/pic.jpg" alt=""/>
-					</div>
-                    <div class="sale-box"><span class="on_sale title_shop">New</span></div>
-                    <div class="price">
-					   <div class="cart-left">
-							<p class="title">Lorem Ipsum simply</p>
-							<div class="price1">
-							  <span class="actual">$12.00</span>
-							</div>
-						</div>
-						<div class="cart-right"> </div>
-						<div class="clear"></div>
-					 </div>
-                   </div>
-                 </a>
-				</div>
-			   <div class="col_1_of_3 span_1_of_3">
-			   	 <a href="single.html">
-					<div class="inner_content clearfix">
-					<div class="product_image">
-						<img src="images/pic1.jpg" alt=""/>
-					</div>
-                    <div class="price">
-					   <div class="cart-left">
-							<p class="title">Lorem Ipsum simply</p>
-							<div class="price1">
-							  <span class="actual">$12.00</span>
-							</div>
-						</div>
-						<div class="cart-right"> </div>
-						<div class="clear"></div>
-					 </div>
-                   </div>
-                   </a>
-				</div>
-				<div class="col_1_of_3 span_1_of_3">
-				 <a href="single.html">
-				  <div class="inner_content clearfix">
-					<div class="product_image">
-						<img src="images/pic2.jpg" alt=""/>
-					</div>
-                    <div class="sale-box1"><span class="on_sale title_shop">Sale</span></div>
-                    <div class="price">
-					   <div class="cart-left">
-							<p class="title">Lorem Ipsum simply</p>
-							<div class="price1">
-							  <span class="reducedfrom">$66.00</span>
-							  <span class="actual">$12.00</span>
-							</div>
-						</div>
-						<div class="cart-right"> </div>
-						<div class="clear"></div>
-					 </div>
-                   </div>
-                   </a>
-				</div>
-				<div class="clear"></div>
-			</div>
+      @foreach ($productos as $key => $val)
+        <h2 class="head">{{$val->nombre}}</h2>
+          @foreach ($val['productos'] as $key2 => $val2)
+            <div class="top-box">
+            <div class="col_1_of_3 span_1_of_3">
+              <a href="single.html">
+                <div class="inner_content clearfix">
+                  <div class="product_image">
+                    <img src="images/{{$val2->image}}" alt="" height="200" width="200"/>
+                  </div>
+                  <div class="sale-box"><span class="on_sale title_shop">{{$val2['pivot']->cantidad}}</span></div>
+                  <div class="price">
+                    <div class="cart-left">
+                      <p class="title">{{$val2->nombre}}</p>
+                      <div class="price1">
+                        <span class="actual">{{$val2->precio}}</span>
+                      </div>
+                    </div>
+                    <div class="cart-right"> </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          @endforeach
+          <div class="clear"></div>
+        </div>
+      @endforeach
 		  </div>
 	   <div class="clear"></div>
 	</div>
